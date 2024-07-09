@@ -1,0 +1,489 @@
+.wrap{
+    width:935px;
+    margin:0 auto;
+}
+
+.round_img{
+    border-radius:50%;
+}
+
+.txt_id{
+    font-weight:bold;
+}
+
+/**************************
+HEADER
+**************************/
+header{
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+header .wrap{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 15px 0;
+}
+
+header a.logo{
+    height: 20px;
+    background: url('../img/다운로드.png') 0 center / contain no-repeat;
+}
+
+header .logo h1{
+    height:100%;
+    margin-left:35px;
+    padding-left:15px;
+    border-left:1px solid #262626;
+    font-size:25px;
+    line-height:15px;
+    font-weight:100;
+}
+
+.search{
+    display: flex;
+    flex: 3.5;
+    padding: 0 5px;
+    margin: 0 15%;
+    background: #fafafa;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+}
+
+.search input[type=text]{
+    position: relative;
+    flex: 9;
+    height: 25px;
+    background: none;
+    border: none;
+}
+
+.search button{
+    flex: 1;
+    color: #999;
+}
+.search button> .fas {
+    position: relative;
+}
+
+.gnb{
+    flex: 1.5;
+}
+
+.gnb ul{
+    display: flex;
+}
+
+.gnb ul li{
+    position: relative;
+    flex: 2.5;
+    font-size: 0;
+    width: 25px;
+    height: 25px;
+    background-position:  center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.gnb ul li:before{
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    margin-left: -1.5px;
+    width: 4px;
+    height: 4px;
+    background: #e04141;
+    border-radius: 4px;
+}
+.gnb ul li.home{
+    background-image: url(../img/home.png);
+}
+.gnb ul li.direct{
+    background-image: url(../img/direct.png);
+}
+.gnb ul li.research{
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png');
+}
+
+.gnb ul li.like{
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png');
+}
+
+.gnb ul li.mypage{
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png');
+}
+
+.gnb ul li.mypage:before{
+    display: none;
+}
+
+.gnb ul li a{
+    display: block;
+    height: 100%;
+}
+
+/**************************
+MAIN LAYOUT
+**************************/
+main.wrap{
+    display: flex;
+    flex-direction: row-reverse; 
+    padding: 80px 0 100px;
+}
+
+/**************************
+ASIDE
+**************************/
+aside{
+    flex: 3.5;
+}
+
+/* my profile */
+.my_profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.my_profile a.profile_img{
+    flex:2;
+}
+
+.my_profile a.profile_img img{
+    width: 55px;
+    height: 55px;
+}
+
+.my_profile .my_id{
+    flex: 8;
+}
+
+.my_profile .my_id p{
+    color:  #999;
+}
+.my_id > button {
+    flex: 2;
+    color: #0095f6;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+
+
+/* WIDGET - common */
+.widget{
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.widget_ttl{
+    display: flex;
+    /*  justify-content 속성은 플렉스 요소의 수평 방향 정렬 방식을 설정
+        1. flex-start : 기본 설정으로, 플렉스 요소는 플렉스 컨테이너의 앞쪽에서부터 배치됩니다.
+        2. flex-end : 플렉스 요소는 플렉스 컨테이너의 뒤쪽에서부터 배치됩니다.
+        3. center : 플렉스 요소는 플렉스 컨테이너의 가운데에서부터 배치됩니다.
+        4. space-between : 플렉스 요소는 요소들 사이에만 여유 공간을 두고 배치됩니다.
+        5. space-around : 플렉스 요소는 앞, 뒤, 그리고 요소들 사이에도 모두 여유 공간을 두고 배치됩니다.*/
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+}
+
+.widget_ttl span{
+    color: #999;
+}
+
+.widget .txt_id:hover{
+    text-decoration: underline;
+}
+
+/* WIDGET - story */
+.stories{
+    padding-bottom: 0;
+}
+
+.list_story{
+    height: 200px;
+    overflow-y: scroll;
+}
+/*  스크롤바역할을 한다. 
+    ::-webkit-scrollbar — 스크롤바 전체.
+    ::-webkit-scrollbar-button — 스크롤바의 버튼 
+    (한 번 누를 때마다 위아래로 한 줄씩 오르내리는 위아래 화살표).
+    ::-webkit-scrollbar-thumb — 드래그할 수 있는 스크롤 손잡이.
+    ::-webkit-scrollbar-track — 흰색 막대 위에 회색 바가 존재할 경우의 스크롤바의 트랙(진행 표시줄).
+    ::-webkit-scrollbar-track-piece — 손잡이에 의해 덮이지 않은 트랙(진행 표시줄)의 부분.
+    ::-webkit-scrollbar-corner — 수평 스크롤바와 수직 스크롤바가 교차하는 곳의 하단 모서리. 
+                                주로 브라우저 창의 우측 하단 모서리에 위치한다.
+    ::-webkit-resizer — 몇몇 요소들의 하단 모서리에 나타나는, 드래그 할 수 있는 사이즈 변경 손잡이.*/
+.list_story::-webkit-scrollbar{
+    width: 0;
+}
+
+.story{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.story a.follower_img{
+    flex: 2;
+}
+
+.story a.follower_img img{
+    width: 45px;
+    height: 45px;
+}
+
+.story .user_id{
+    flex: 8;
+}
+
+.story .user_id p{
+    color: #999;
+}
+
+/* WIDGET - recommend*/
+.recommends{
+    padding-bottom:5px;
+}
+
+.recommend{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recommend a.recommend_img{
+    flex: 2;
+}
+
+.recommend a.recommend_img img{
+    width: 45px;
+    height: 45px;
+}
+
+.recommend .user_id{
+    flex: 6;
+}
+
+.recommend .user_id p{
+    color:  #999;
+}
+
+.recommend button{
+    flex: 2;
+    color: #0095f6;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+/*menu*/
+.menu ul li{
+    position: relative;
+    display: inline-block;
+    line-height: 1.5;
+    padding-right: 12px;
+}
+
+.menu ul li:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    width: 2px;
+    height: 2px;
+    margin-top: -1px;
+    background: #b9b9b9;
+}
+
+.menu ul li a{
+    color: #999;
+    font-size: 0.8em;
+}
+
+.copyright{
+    color: #999;
+    font-size: 0.8em;
+    padding-top: 20px;
+}
+
+/**************************
+FEED BOARD
+**************************/
+div.feed_board{
+    flex: 6.5;
+    margin-right: 15px;
+}
+
+/* FEED - common */
+.feed{
+    background: #fff;
+    border: 1px solid #e8e8e8;
+}
+
+/* FEED - top */
+.new_poster{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.new_poster .poster_img{
+    flex:1;
+}
+
+.new_poster .poster_img img{
+    width:45px;
+    height:45px;
+}
+
+.new_poster .poster_id{
+    flex: 18;
+    margin-left: 10px;
+}
+
+.new_poster button{
+    flex: 1;
+    font-size: 0;
+    text-align: right;
+}
+
+.new_poster button .fas{
+    flex: 0.4;
+    font-size: 12px;
+}
+
+/* FEED - content */
+.feed_imgs img,
+.feed_imgs video{
+    width: 100%;
+}
+
+.interactions{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
+}
+
+.interactions button{
+    flex: 3;
+    margin: 0 10px;
+    font-size: 0;
+}
+
+.interactions button.bookmark{
+    flex: 1;
+}
+
+.interactions button .far{
+    font-size: 20px;
+    color: #676767;
+}
+.interactions .my_emotion{
+    display: flex;
+    flex: 2;
+}
+
+.pagnation{
+    flex:25;
+}
+
+.like_user img{
+    width: 25px;
+    height: 25px;
+}
+
+.feed_imgs p{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.feed_imgs p .like_user{
+    display: flex;
+    align-items: center;
+}
+
+.feed_imgs p .txt_id{
+    margin-left: 10px;
+}
+
+/* FEED - feed text */
+.feed_txt{
+    padding: 0 20px;
+}
+
+.feed_txt .txt_id{
+    margin-right: 5px;
+}
+
+.feed_txt .more{
+    color: #999;
+}
+
+/*comments*/
+.comments{
+    padding: 10px 20px;
+}
+
+.list_comment{
+    margin-bottom: 10px;
+}
+
+.txt_comment{
+    display:flex;
+    margin-bottom: 5px;
+}
+
+.txt_comment > span{
+    flex:9.8;
+}
+
+.txt_comment > span .txt_id{
+    margin-right: 10px;
+}
+
+.txt_comment > span span{
+    width: 100%;
+}
+
+.txt_comment button{
+    flex: 0.2;
+    color: #ddd;
+}
+
+.txt_comment button:hover{
+    color: #777;
+}
+
+.post_comment{
+    display: flex;
+    align-content: center;
+    padding: 20px 0 10px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.post_comment textarea{
+    flex: 9;
+    height: 30px;
+    border: none;
+    resize: none;
+}
+
+.post_comment textarea::-webkit-scrollbar{
+    width: 0;
+}
+
+.post_comment button{
+    flex: 1;
+    color: #0095f6;
+}
