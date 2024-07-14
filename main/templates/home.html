@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instan</title>
+    <script src="https://kit.fontawesome.com/8500dc5fb5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="{% static 'css/home2.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#"><i class="fa-brands fa-instagram fa-xl"></i></a>
+            <div class="middleline"></div>
+            <a href="#"><img src="{% static 'img/logo.png' %}" alt="" class="sub-logo"></a>
+        </div>
+        <div class="mypage">
+            <a href="/post"><i class="fa-regular fa-plus fa-xl"></i></a>
+            <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i></a>
+        </div>
+    </nav>
+    
+    {% for i in post %}
+    <div class="post">
+        <div class="post-top">
+            <a><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+            <span class="user-id">{{i}}</span>
+            <a><i class="fa-solid fa-ellipsis fa-lg"></i></a>
+        </div>
+        <hr class="gray-line">
+        <div class="post-image" style="height: auto;">
+            <img src="https://firebasestorage.googleapis.com/v0/b/instan-54e35.appspot.com/o/{{i.image}}?alt=media" style="width: 100%; max-height:300px;object-fit: contain;">
+        </div>
+        <hr class="gray-line">
+        <div class="post-option">
+            <i class="fa-regular fa-heart fa-lg"></i>
+            <i class="fa-regular fa-comment fa-lg" onclick="openModal('{{ forloop.counter0 }}')"></i>
+        </div>
+        <div class="post-people">
+            <div><span>좋아요 {{i.like}}개</span></div>
+        </div>
+        <div class="post-detail">
+            <div>{{i.contents}}</div>
+        </div>
+        <div class="post-date" style="text-align: right; font-size: small; margin-right:10px;">
+            {{ i.date|date:'Y년 m월 d일' }}
+        </div>
+        <hr class="gray-line">
+        <form class="comment-form">
+            <input type="text" id="comment-input" placeholder="댓글 달기...">
+            <button id="submit-button">추가</button>
+        </form>
+    </div>
+    {% endfor %}
+    
+    <!-- Modal -->
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>댓글</h2>
+            <div id="modalComments" class="modal-comments">
+                <script>
+                    function openModal(postIndex) {
+                        // 모달 열기
+                        var modal = document.getElementById("commentModal");
+                        modal.style.display = "block";
+                        
+                        // 댓글 로드
+                        var comments = [
+                            ["{{i.contents}}", "놀러가고 싶다!!"],
+                            ["user2", "정말 귀여운 사진이네요!"]
+                        ]; // 예시 댓글 데이터. 실제 데이터로 대체하세요.
+                        
+                        var modalComments = document.getElementById("modalComments");
+                        modalComments.innerHTML = ""; // 기존 댓글 초기화
+                        
+                        comments.forEach(function(comment) {
+                            var commentElement = document.createElement("div");
+                            commentElement.className = "comment";
+                            commentElement.innerHTML = "<strong>" + comment[0] + "</strong> " + comment[1];
+                            modalComments.appendChild(commentElement);
+                        });
+                    }
+                    
+                    function closeModal() {
+                        var modal = document.getElementById("commentModal");
+                        modal.style.display = "none";
+                    }
+                    
+                    // 모달 외부 클릭 시 닫기
+                    window.onclick = function(event) {
+                        var modal = document.getElementById("commentModal");
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
+                <!-- 댓글 리스트가 여기에 표시됩니다 -->
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

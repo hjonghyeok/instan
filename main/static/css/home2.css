@@ -1,0 +1,319 @@
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    background-color: #fafafa;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+}
+
+
+/*여기서부터 메인 홈페이지 CSS*/
+/*상단바*/
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.192);   
+    margin-top: 30px; 
+    background-color: white;
+    width: 100%;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 15px 0px 10px 50px;
+}
+.fa-instagram{
+    padding: 0 20px;
+    color: black;
+}
+.middleline{
+    border: 1px solid;
+    height: 25px;
+}
+.sub-logo{
+    width: 80px;
+    height:35px;
+    padding: 0 20px;
+}
+.mypage{
+    padding-right: 50px;
+}
+.fa-user{
+    color: black;
+}
+.fa-arrow-right-from-bracket{
+    color: black;
+}
+.mypage a:last-child{
+    padding-left: 20px;
+}
+
+
+
+/*게시물*/
+.post{
+    margin-top: 30px;
+    width:500px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+/*포스트 상단*/
+.post-top{
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+}
+.fa-circle-user{
+    color: #dbdbdb;
+}
+.user-id{
+    font-weight: bold;
+    font-size: 15px;
+    padding-left: 10px;
+}
+.post-top a:last-child {
+    margin-left: auto; 
+}
+
+/*포스트 이미지*/
+.post-image{
+    background-position: center;
+}
+
+.post_imgs{
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*포스트 좋아요, 댓글, 공유 */
+.post-option{
+    padding: 15px;
+    display: flex; 
+    align-content: left;
+}
+
+.post-option i{
+    margin-right: 10px;
+}
+
+/*포스트 좋아요누른 사람들*/
+.post-people{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.post-people i{
+    margin-right: 5px;
+}
+.post-people div span{
+    font-weight: bold;
+
+}
+
+/*포스트 내용*/
+.post-detail{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px;
+}
+.post-subject{
+    font-weight: bold;
+    padding-bottom:5px;
+}
+.post-detail div{
+    line-height: 23px;
+}
+.post-detail div span{
+    color: #b1b0b0;
+}
+
+/*포스트 댓글 미리보기*/
+.post-comment{
+    display: flex;
+    padding: 10px 0px 0px 15px;
+
+}
+.comment-id{
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding-bottom: 10px;
+}
+.id-comment{
+    font-weight: normal;
+}
+
+/*댓글 달기*/
+.comment-form{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+#comment-input{
+    border: none;
+    flex: 9;
+    height: 15px;
+    padding: 20px 0px;
+}
+
+#submit-button{
+    flex: 1;
+    border: none;
+    background-color: white;
+    color: #0095f6;
+}
+
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 430px) and (max-height: 932px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0px;
+    }
+    .fa-instagram{
+        display: none;
+    }
+    .sub-logo{
+        height: 30px;
+        width: 60px;
+        padding: 0px;
+    }
+    .middleline{
+        display: none;
+    }
+    .logo {
+    }
+    .post {
+        width: 100%;
+        margin-top:20px;
+    }
+    .post-top {
+        padding: 20px 15px;
+    }
+    .post-image {
+        height: 450px;
+    }
+    .post-option {
+        margin-right: 10px;
+        padding: 20px 10px;
+    }
+    .post-people {
+        padding: 10px;
+    }
+    .post-detail {
+        padding: 10px;
+    }
+    .post-comment {
+        padding: 5px 10px;
+    }
+    .comment-form {
+        padding: 10px;
+    }
+    #comment-input {
+        padding: 10px 0;
+    }
+}
+
+.gray-line {
+    border: none;
+    border-top: 2px solid rgb(214, 212, 212);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-comments {
+    margin-top: 20px;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
